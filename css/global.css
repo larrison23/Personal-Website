@@ -1,0 +1,233 @@
+/* Basic Reset and Body Styles */
+        body {
+            margin: 0;
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+
+        /* Main container for the entire page */
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto; 
+            padding: 0 20px; 
+            box-sizing: border-box;
+        }
+
+        /* Header and Navigation Bar */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px 0;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 2rem; 
+            font-weight: 700;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active {
+            border-bottom: 4px solid black;
+        }
+
+        .nav-link:hover {
+            color: #555;
+        }
+
+        /* Hero Image Section */
+        .hero-image {
+            width: 100%;
+            height: 350px; 
+            object-fit: cover; 
+            object-position: 100% 60%; 
+            display: block;
+            margin: 14px 0;
+        }
+
+        /* Projects Intro Section */
+        .projects-intro {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-weight: 700;
+        }
+
+        .project-list a, .project-list a:visited {
+            color: black;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* Individual Project Section */
+        .project-section {
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .project-title-banner {
+            background-color: black;
+            color: white;
+            padding: 20px 40px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .project-title-banner h3 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .project-description {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 1105px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .project-subsection {
+            width: 100%;
+            max-width: 1105px;
+            text-align: left;
+        }
+
+        .project-subsection h4 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-subsection ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+        
+        .project-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 40px 0;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 738px; 
+        }
+
+        .image-big {
+            width: 100%;
+            max-width: 1105px;
+            height: auto;
+            outline: 4px solid black;
+        }
+
+        .image-caption {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+            margin-top: 15px; 
+            text-align: center;
+            line-height: 1.5;
+            max-width: 90%; 
+        }
+
+        .back-to-top-link, .back-to-top-link:visited {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #555;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top-link:hover {
+            background-color: #f0f0f0;
+            color: black;
+            border-color: #aaa;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* For tablets and smaller desktops */
+        @media (min-width: 769px) {
+            .logo {
+                text-align: left;
+                flex-grow: 0;
+            }
+            .nav {
+                width: auto;
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+            }
+            .logo, .nav-link, .project-list {
+                font-size: 1.2rem;
+            }
+            .section-title, .project-title-banner h3 {
+                font-size: 2rem;
+            }
+            .project-description {
+                font-size: 1.1rem;
+            }
+        }

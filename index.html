@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrison Sweet | Portfolio</title>
+    <!-- Importing Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========================================
+        CSS STYLES
+        You can edit all the styles for the page here.
+        ========================================
+        */
+
+        /* Basic Reset and Body Styles */
+        body {
+            margin: 0;
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+        }
+
+        /* Main container for the entire page */
+        .container {
+            width: 100%;
+            max-width: 1440px; /* Limits the maximum width on large screens */
+            margin: 0 auto; /* Centers the container */
+            padding: 0 20px; /* Adds some space on the sides */
+            box-sizing: border-box;
+        }
+
+        /* Header and Navigation Bar */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+            padding: 20px 0;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 2rem; /* Responsive font size */
+            font-weight: 700;
+            text-align: center;
+            flex-grow: 1; /* Allows logo to take available space */
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            width: 100%; /* Full width on small screens */
+            justify-content: center; /* Center nav links */
+            flex-wrap: wrap; /* Allow links to wrap */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active {
+            border-bottom: 4px solid black;
+        }
+
+        .nav-link:hover {
+            color: #555;
+        }
+
+        /* Hero Image Section */
+        .hero-image {
+            width: 100%;
+            height: 350px; /* Set a fixed height for the banner */
+            object-fit: cover; /* This is the key! Prevents distortion. */
+            object-position: 100% 60%; /* Adjusts the focal point of the image */
+            display: block;
+            margin: 14px 0;
+        }
+
+        /* About Me Section */
+        .about-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .section-title-container {
+            display: inline-block; /* Allows centering with margin auto */
+            background: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            /* The original design had this floating, this is a more stable approach */
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap; /* Stacks items on smaller screens */
+            text-align: left;
+        }
+
+        .about-image-container {
+            flex: 1 1 400px; /* Flex properties for responsive resizing */
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 438px;
+            height: 600px;
+            object-fit: cover;
+            object-position: 40% 20%;
+            border-radius: 10px;
+            outline: 4px solid black;
+            outline-offset: -4px;
+        }
+        
+        .about-text {
+            flex: 1 1 600px; /* Allows text to take more space */
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* ========================================
+        RESPONSIVE MEDIA QUERIES
+        ========================================
+        */
+
+        /* For tablets and smaller desktops */
+        @media (min-width: 769px) {
+            .logo {
+                text-align: left;
+                flex-grow: 0; /* Don't grow on larger screens */
+            }
+            .nav {
+                width: auto; /* Auto width on larger screens */
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column; /* Stack logo and nav vertically */
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                flex-direction: column; /* Stack image and text vertically */
+                text-align: center;
+            }
+
+            .about-text {
+                text-align: left;
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <a href="#about" class="nav-link"><div class="logo">HARRISON SWEET</div></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">ABOUT</a>
+                <a href="projects.html" class="nav-link">PROJECTS</a>
+                <a class="nav-link" href="documents/SweetHarrisonCV.pdf" target="_blank" rel="noopener noreferrer">RESUME</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Image -->
+            <!-- Using a placeholder as in the original code -->
+            <img class="hero-image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
+
+            <!-- About Me Section -->
+            <section id="about" class="about-section">
+                <div class="section-title-container">
+                    <h2 class="section-title">ABOUT ME</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-image-container">
+                        <img class="about-image" src="images/Harrison_headshot.jpeg" alt="Portrait of Harrison Sweet" />
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            Hi, I’m a recent graduate of Tufts University with an M.S. in Computer Science and a B.A. in Philosophy, bringing a strong foundation in software development, cybersecurity, and UX. My technical experience spans backend and mobile app development, as well as conducting academic research on vulnerability assessment protocols within the Tufts Security and Privacy Lab.
+                        </br> </br>
+                            Previously, I served as a Computer Science Teaching Assistant and worked as an IT intern at the Connecticut Judicial Branch, where I gained hands-on experience in web development and security practices. As the former captain of both the Tufts Varsity Men's Rowing and Club Ice Hockey teams, I bring strong leadership, cross-functional collaboration, and a data-driven approach to complex problem-solving. I am passionate about leveraging technology to build secure, innovative, and user-centric software solutions.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            Produced by Harrison. Created with Figma
+        </footer>
+    </div>
+
+</body>
+</html>

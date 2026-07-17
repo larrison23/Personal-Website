@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrison Sweet | Portfolio</title>
+
+    <!-- Importing marked.js-->
+    <script src="marked.min.js"></script>
+
+    <!-- Importing Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <a href="index.html" class="nav-link"><div class="logo">HARRISON SWEET</div></a>
+            <nav id="top" class="nav">
+                <a href="index.html" class="nav-link">ABOUT</a>
+                <a href="projects.html" class="nav-link active">PROJECTS</a>
+                <a class="nav-link" href="documents/SweetHarrisonCV.pdf" target="_blank" rel="noopener noreferrer">RESUME</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Image -->
+            <img class="hero-image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
+
+            <!-- Projects Intro -->
+            <section class="projects-intro">
+                <h2 class="section-title">PROJECTS</h2>
+                <ul class="project-list">
+                    <li><a href="#home-lab">1 Home Lab Project</a></li>
+                    <li><a href="#llmproxy">2 LLM-Powered HTTPS Proxy Server</a></li>
+                    <li><a href="#judicial">3 Connecticut Judicial Branch</a></li>
+                    <li><a href="#seaview">4 Seaview Website</a></li>
+                </ul>
+            </section>
+
+            <!-- Project 1: Home Lab -->
+            <section id="home-lab" class="project-section">
+                <div class="project-title-banner">
+                    <h3>1 HOME LAB: SMART HOME</h3>
+                </div>
+
+                <div class="project-content" data-file="projects/Containerized Home Network.md">
+                    Loading project data...
+                </div>
+
+                <div class="back-to-top-container">
+                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
+                </div>
+            </section>
+
+            <!-- Project 2: LLM Proxy -->
+            <section id="llmproxy" class="project-section">
+                <div class="project-title-banner">
+                    <h3>2 LLM-POWERED HTTPS PROXY SERVER</h3>
+                </div>
+
+                <div class="project-content" data-file="projects/LLM Connected Proxy.md">
+                    Loading project data...
+                </div>
+
+                <div class="back-to-top-container">
+                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
+                </div>
+            </section>
+
+            <!-- Project 3: Connecticut Judicial Branch -->
+            <section id="judicial" class="project-section">
+                <div class="project-title-banner">
+                    <h3>3 CONNECTICUT JUDICIAL BRANCH</h3>
+                </div>
+
+                <p class="project-description">
+                    During my internship with the Connecticut Judicial Branch's IT department, I was responsible for developing a new Diversity, Equity, and Inclusion (DEI) web portal. Working within the state's established web framework, I used HTML and CSS to build the portal's front-end, ensuring it integrated seamlessly with the existing digital infrastructure.
+                    <br><br>
+                    A key part of my role involved direct communication with the DEI committee to gather requirements and translate their vision into functional web pages. The development workflow was managed through Azure DevOps, where I handled push and pull requests in a professional development environment. At the conclusion of my internship, I successfully handed over the completed project and documentation to a full-time employee for continued maintenance and updates, demonstrating a smooth transition process.
+                </p>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="images/CT_Judicial_Home.png" class="image-big"></img>
+                        <p class="image-caption">The home page for the DEI webpage.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/CT_Judicial_Training.png" class="image-big"></img>
+                        <p class="image-caption">The trainings page for the DEI website with responsive links and integrated images.</p>
+                    </div>
+                </div>
+
+                <div class="back-to-top-container">
+                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
+                </div>
+            </section>
+            
+            <!-- Project 4: Seaview Website -->
+            <section id="seaview" class="project-section">
+                <div class="project-title-banner">
+                    <h3>4 SEAVIEW WEBSITE</h3>
+                </div>
+
+                <p class="project-description">
+                    For this six-week project, I was tasked with a complete redesign of a Homeowner Association's website, which was running on an older, restrictive version of WordPress. The goal was to modernize the user interface and improve the overall user experience for residents.
+                    <br><br>
+                    My process began with client consultations to understand their needs and pain points, which I translated into a high-fidelity prototype using Figma. The primary challenge arose during development: implementing the custom, modern design within the significant technical constraints of the existing WordPress theme. To overcome this, I simplified the design, and worked slowly to understand the platform and its limitations.
+                    <br><br>
+                    A critical requirement was to avoid any service disruption. I tested and carefully deployed each page, implementing changes incrementally and pushing them to the live site in phases. This project was an excellent exercise in client communication, technical problem-solving, and managing the design lifecycle of a web project from concept to a stable, successful launch.
+                </p>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="images/Seaview.jpg" class="image-big"></img>
+                        <p class="image-caption">A screenshot of the initial high-fidelity Figma design, showing the modern UI concept.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/Seaview_web.png" class="image-big"></img>
+                        <p class="image-caption">The final website implemented in WordPress, successfully balancing design with platform capabilities.</p>
+                    </div>
+                </div>
+
+                <div class="back-to-top-container">
+                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            Produced by Harrison. Created with Figma
+        </footer>
+    </div>
+
+    <!-- Script to fetch and parse Markdown Files-->
+    <script>
+        const projectContainers = document.querySelectorAll('.project-content');
+
+        projectContainers.forEach(container => {
+            const markdownFile = container.getAttribute('data-file');
+
+            fetch(markdownFile)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Could not load ${mardownFile}. Check the path.`);
+                    } 
+                    return response.text();
+                })
+                .then(text => {
+                    container.innerHTML = marked.parse(text);
+                })
+                .catch(error => {
+                    container.innerHTML = `<p>Error loading project data.</p>`;
+                    console.error('Fetch error for', markdownFile, ':', error);
+                });
+        });
+    </script>
+
+</body>
+</html>
