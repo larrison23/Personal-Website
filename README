@@ -6,4 +6,4 @@ Directories: `chmod 755 <directoryname>`
 
 Use: `python -m http.server 8000` to test the website
 
-Use: `rsync -avz ./ rsweet02@linux.eecs.tufts.edu:~/public_html/` to sync with the linux folder from the Personal Website folder
+Use: `rsync -avz --exclude '.git/' --exclude '.DS_Store' ./ harrison91sweet@linux.eecs.tufts.edu:~/public_html/` to sync with the linux folder from the Personal Website folder
