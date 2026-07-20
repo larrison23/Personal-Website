@@ -1,6 +1,6 @@
 ## Overview
 
-Inspired by David Rose’s _Enchanted Objects_, I have been slowly transforming standard household items into a locally contained, interconnected smart environment. By maintaining control over the devices, I can have dynamic, automated control over room conditions, waking routines, and environmental monitoring.
+Inspired by David Rose’s _Enchanted Objects_, I have been slowly connecting my various household items into a locally interconnected environment. This smart home gives me dynamic, automated control over room conditions, waking routines, and environmental monitoring. The main automation I have built is a gradual, customizable alarm with connected lights and a sound machine.
 
 ### Tech Stack
 
