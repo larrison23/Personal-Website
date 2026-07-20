@@ -4,24 +4,38 @@ Co-developed a custom HTTPS proxy that intercepts web traffic and uses a Large L
 
 ### Tech Stack
 
-- **Languages & Frameworks:** C, Flask, LLM, Beautiful Soup
+- **Languages & Frameworks:** C, Flask, LLM, Beautiful Soup, Make
 - **Infrastructure & Deployment:** GitHub (CI/CD)
 - **APIs & Integrations:** LLMProxy API (created by Tufts PhD students)
 
 ```mermaid
 flowchart TD
-	Browser["Browser"] <-->|"HTTPS"| Proxy["Main Proxy Server (C)"]
+	Browser["User Browser"]
+
+    subgraph C_Proxy ["Main Proxy Server (C / CMake)"]
+        direction TB
+        Interceptor["MITM (Managing TLS Cert)"]
+    end
+
+    subgraph Python ["Content Editor (Flask / BeautifulSoup)"]
+        direction TB
+        Parser["Content Parser"]
+    end
+
+    Browser["Browser"] <-->|"HTTPS"| Interceptor
 	
-	Proxy <-->|"HTTPS"| Server["Web Server"]
+	Interceptor <-->|"HTTPS"| Server["Web Server"]
 	
-	Proxy <-->|"Local HTTP"| FlaskApp["Flask Server (Python)"]
-	FlaskApp <-->|"Internal API"| LLMProxy["LLM Proxy"]
+	Interceptor <-->|"Local HTTP"| Parser
+    
+	Parser <-->|"Internal API"| LLMProxy["LLM Proxy"]
+
 	LLMProxy <--> |"HTTPS"|Modify("External LLMs (OpenAI, Anthropic, etc.)")
 ```
 
 ## Challenge
 
-Building the proxy required a secure Man-in-the-Middle (MITM) architecture that could dynamically manage TLS certificates on the fly. We initially looked at doing everything in C, but quickly realized that native C lacks the robust libraries needed for heavy HTML parsing and LLM API routing. By decoupling the system, we let C handle the high-speed network routing while Python handles the complex text manipulation. Using this architecture we were able to intercept and modify static and semi-static web pages (e.g., Wikipedia, text-heavy blogs). During testing, however, we encountered concurrency bottlenecks when handling heavily dynamic sites generating dozens of asynchronous requests (videos, complex DOMs). To resolve this for future iterations, we discuessed a concurrent model utilizing process forking, designing a system to route all asynchronous connections tied to a single session ID through a unified, dedicated proxy instance.
+Building the proxy required a secure Man-in-the-Middle (MITM) architecture that could dynamically manage TLS certificates on the fly. We initially looked at doing everything in C, but quickly realized that native C lacks the robust libraries needed for heavy HTML parsing and LLM API routing. By decoupling the system, we let C handle the high-speed network routing while Python handles the complex text manipulation. Using this architecture we were able to intercept and modify static and semi-static web pages (e.g., Wikipedia, text-heavy blogs). During testing, however, we encountered concurrency bottlenecks when handling heavily dynamic sites generating dozens of asynchronous requests (videos, complex DOMs). To resolve this for future iterations, we discussed a concurrent model utilizing process forking, designing a system to route all asynchronous connections tied to a single session ID through a unified, dedicated proxy instance.
 
 ### The Solution
 

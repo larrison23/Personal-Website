@@ -1,6 +1,6 @@
 ## Overview
 
-Developed a custom web server framework in Java, conceptually mirroring the Model-View-Controller (MVC) architecture of Ruby on Rails. Utilizing JServer as the foundation, I built a dynamic, stateful book repository application. The framework intelligently routes incoming HTTP requests to dedicated Java controllers, seamlessly managing SQLite database transactions and rendering dynamic HTML views to the client.
+Developed a custom web server framework in Java, conceptually mirroring the Model-View-Controller (MVC) architecture. Utilizing JServer as the foundation, I built a dynamic, stateful book repository application. The framework intelligently routes incoming HTTP requests to dedicated Java controllers, seamlessly managing SQLite database transactions and rendering dynamic HTML views to the client.
 
 ### Tech Stack
 
@@ -16,7 +16,7 @@ flowchart TD
     Model[("Model (SQLite)")]
 
 	User -->|"HTTP Request"| Controller
-    Controller -->|"Write"| View
+    Controller -->|"Renders"| View
     View -->|"HTTP Response"| User
     Controller <-->|"Queries/Update"| Model
     Model ~~~ View
