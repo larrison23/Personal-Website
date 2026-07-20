@@ -1,6 +1,6 @@
 ## Overview
 
-Inspired by David Rose’s _Enchanted Objects_, I have been building a locally interconnected environment to enchant various objects around my house. This smart home gives me dynamic, automated control over room conditions, waking routines, and environmental monitoring. The main automation is a gradual, customizable alarm that coordinates connected lights and a sound machine.
+Inspired by David Rose’s _Enchanted Objects_, I built a locally hosted smart home system to automate my room's environment. Instead of relying on cloud services, the setup handles envrionmental monitoring and daily routines entirely locally. The core feature is a custom morning automation that physically syncs my lights and a sound machine to act as a gradual wake-up alarm.
 
 ### Tech Stack
 
@@ -21,7 +21,7 @@ graph TD
 
 ## Challenge
 
-My first attempts to build a smart home using an Apple HomePod were curtailed by vendor lock-in. I couldn't integrate third-party hardware like IR remotes or soil monitors. Further, adjusting my schedules (such as the early alarms for rowing) required manually editing the configuration settings within the backend application, making it difficult to change quickly and leading to some missed and way too early alarms.
+My initial setup relied on an Apple HomePod, but I quickly hit a wall with vendor lock-in when trying to integrate custom hardware like IR remotes and soil monitors. Once I got Homebridge set up to solve this problem, I ran into another bottleneck with scheduling my alarm and interacting with my smart home. Adjusting to my variable early morning schedule required manually editing backend config files. Because changing the schedule on the fly was such a hassle, I inevitably ended up sleeping through a few alarms or waking up hours before I needed to.
 
 ### The Solution
 
