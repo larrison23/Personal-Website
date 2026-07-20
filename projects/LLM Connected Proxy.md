@@ -23,11 +23,13 @@ flowchart TD
 
 Building the proxy required a secure Man-in-the-Middle (MITM) architecture that could dynamically manage TLS certificates on the fly. We initially looked at doing everything in C, but quickly realized that native C lacks the robust libraries needed for heavy HTML parsing and LLM API routing. By decoupling the system, we let C handle the high-speed network routing while Python handles the complex text manipulation. Using this architecture we were able to intercept and modify static and semi-static web pages (e.g., Wikipedia, text-heavy blogs). During testing, however, we encountered concurrency bottlenecks when handling heavily dynamic sites generating dozens of asynchronous requests (videos, complex DOMs). To resolve this for future iterations, we discuessed a concurrent model utilizing process forking, designing a system to route all asynchronous connections tied to a single session ID through a unified, dedicated proxy instance.
 
-## The Solution
+### The Solution
 
 - **Dual-Connection Architecture:** Engineered the C proxy to independently mediate two secure connections: acting as the server to the user's browser, and as the client to the destination web server. The proxy dynamically generated and signed certificates to maintain secure handshakes on both ends.
 - **Microservice Offloading:** To bypass C's parsing limitations, we offloaded the text extraction to a secondary Flask microservice.
 - **Intelligent DOM Manipulation:** The Flask server utilized BeautifulSoup to strip text elements, passed them to the LLMProxy with specific blurring prompts, and injected the censored content back into the HTML stream before returning it to the proxy.
+
+### Main Proxy
 
 Python Webpage Parsing:
 
