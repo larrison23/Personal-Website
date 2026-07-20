@@ -18,7 +18,7 @@ flowchart TD
         Parser["Content Parser"]
     end
 
-    Browser["Browser"] <-->|"HTTPS"| Interceptor
+    Browser <-->|"HTTPS"| Interceptor
 	
 	Interceptor <-->|"HTTPS"| Server["Web Server"]
 	
@@ -73,3 +73,44 @@ def process_packet():
     return reconstruct_http(headers, str(soup))
 ```
 
+**SSL Handshake:**
+```c
+/*
+This function creates the necessary SSL contexts (client verification and MITM server),
+performs the handshake with the browser (SSL_accept), establishes a connection to the
+destination server, and performs the handshake with the destination server (SSL_connect).
+All resulting SSL and socket pointers are passed back via arguments.
+*/
+int perform_ssl_handshakes(int client_sock, const char* host, int port,
+                           SSL **client_ssl, SSL **server_ssl,
+                           SSL_CTX **client_ctx, SSL_CTX **server_ctx,
+                           int *server_sock) {
+    *client_ctx = create_client_verification_context();
+    *server_ctx = create_server_verification_context(host);
+
+    *client_ssl = SSL_new(*server_ctx);
+    SSL_set_fd(*client_ssl, client_sock);
+    if (SSL_accept(*client_ssl) <= 0) {
+        print_ssl_errors("Error accepting SSL handshake from client");
+        return -1; // Indicate failure
+    }
+
+    *server_sock = open_client_fd(host, port);
+    if (*server_sock < 0) {
+        fprintf(stderr, "Error connecting to remote host %s\n", host);
+        return -1;
+    }
+
+    *server_ssl = SSL_new(*client_ctx);
+    SSL_set_fd(*server_ssl, *server_sock);
+    SSL_set_tlsext_host_name(*server_ssl, host);
+
+    // Connect to the server from the context
+    if (SSL_connect(*server_ssl) <= 0) {
+        print_ssl_errors("Error connecting SSL to remote server");
+        return -1;
+    }
+
+    return 0;
+}
+```
