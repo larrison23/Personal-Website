@@ -90,6 +90,16 @@
     color: #000000 !important;
 }
 
+.cluster rect {
+    fill: #e6f2ff !important;
+    stroke: #8cb3d9 !important;
+    stroke-width: 2px !important;
+}
+
+.cluster span {
+    color: #333333 !important;
+}
+
 .project-content blockquote {
     border-left: 4px solid black;
     margin: 0 0 20px 0;

@@ -12,13 +12,9 @@ Co-developed a custom HTTPS proxy that intercepts web traffic and uses a Large L
 flowchart TD
 	Browser["User Browser"]
 
-    subgraph C_Proxy ["Main Proxy Server (C / CMake)"]
+    subgraph C_Proxy ["Main Proxy Server (C / Python)"]
         direction TB
         Interceptor["MITM (Managing TLS Cert)"]
-    end
-
-    subgraph Python ["Content Editor (Flask / BeautifulSoup)"]
-        direction TB
         Parser["Content Parser"]
     end
 
@@ -28,7 +24,7 @@ flowchart TD
 	
 	Interceptor <-->|"Local HTTP"| Parser
     
-	Parser <-->|"Internal API"| LLMProxy["LLM Proxy"]
+	Parser <-->|"Internal API"| LLMProxy["LLMProxy"]
 
 	LLMProxy <--> |"HTTPS"|Modify("External LLMs (OpenAI, Anthropic, etc.)")
 ```
