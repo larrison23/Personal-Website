@@ -15,8 +15,10 @@ graph TD
     HomeKit <-->|"HomeKit Protocol"| HomePod["Apple HomePod"]
     HomePod <-->|"Bridge Protocol"| Homebridge["Homebridge Server (Raspberry Pi)"]
     FlaskApp <-->|"REST API"| Homebridge
-    Homebridge <-->|"IR/Serial/API"| DummyDevice1["Non-HomeKit Lights"]
-    Homebridge <-->|"API"| DummyDevice2["Non-HomeKit Sound Machine"]
+    Homebridge <-->|"API"| DummyDevice1["Lights"]
+    Homebridge <-->|"API"| DummyDevice2["Sound Machine"]
+    Homebridge <-->|"API"| IRDevice["IR Remote"]
+    IRDevice -->|"IR"| ACUnit["AC Unit"]
 ```
 
 ## Challenge
