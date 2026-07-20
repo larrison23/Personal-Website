@@ -150,12 +150,32 @@
 
         <!-- Footer -->
         <footer class="footer">
-            Produced by Harrison. Created with Figma
+            Produced by Harrison. 2026.
         </footer>
     </div>
 
     <!-- Script to fetch and parse Markdown Files-->
-    <script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+
+            themeVariables: {
+                fontFamily: 'IBM Plex Mono, system-ui, sans-serif',
+                fontSize: '16px',
+                primaryColor: '#333333',
+                primaryTextColor: '#ffffff'
+            },
+
+            flowchart: {
+                nodeSpacing: 60,
+                rankSpacing: 60,
+                padding: 15
+            }
+        });
+        
         const projectContainers = document.querySelectorAll('.project-content');
 
         projectContainers.forEach(container => {
@@ -168,9 +188,17 @@
                     } 
                     return response.text();
                 })
-                .then(text => {
+                .then(async text => {
                     container.innerHTML = marked.parse(text);
                     hljs.highlightAll();
+
+                    const mermaidBlocks = container.querySelectorAll('.language-mermaid');
+
+                    if (mermaidBlocks.length > 0) {
+                        await mermaid.run({
+                            nodes:Array.from(mermaidBlocks)
+                        });
+                    }
                 })
                 .catch(error => {
                     container.innerHTML = `<p>Error loading project data.</p>`;

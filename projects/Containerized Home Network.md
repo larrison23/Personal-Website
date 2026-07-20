@@ -8,6 +8,17 @@ Inspired by David Rose’s _Enchanted Objects_, I have been building a locally 
 - **Infrastructure & Deployment:** Raspberry Pi, Docker, Portainer, GitHub (CI/CD)
 - **APIs & Integrations:** Homebridge REST APIs, Apple HomeKit
 
+```mermaid
+graph TD
+    User["User"] -->|"Web UI"| FlaskApp["Flask Web App (Python)"]
+    User -->|"Apple Home App"| HomeKit["Apple HomeKit"]
+    HomeKit <-->|"HomeKit Protocol"| HomePod["Apple HomePod"]
+    HomePod <-->|"Bridge Protocol"| Homebridge["Homebridge Server (Raspberry Pi)"]
+    FlaskApp <-->|"REST API"| Homebridge
+    Homebridge <-->|"IR/Serial/API"| DummyDevice1["Non-HomeKit Lights"]
+    Homebridge <-->|"API"| DummyDevice2["Non-HomeKit Sound Machine"]
+```
+
 ## Challenge
 
 My first attempts to build a smart home using an Apple HomePod were curtailed by vendor lock-in. I couldn't integrate third-party hardware like IR remotes or soil monitors. Further, adjusting my schedules (such as the early alarms for rowing) required manually editing the configuration settings within the backend application, making it difficult to change quickly and leading to some missed and way too early alarms.
