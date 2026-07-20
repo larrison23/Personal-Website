@@ -1,6 +1,6 @@
 ## Overview
 
-Inspired by David Rose’s _Enchanted Objects_, I built a locally hosted smart home system to automate my room's environment. Instead of relying on cloud services, the setup handles envrionmental monitoring and daily routines entirely locally. The core feature is a custom morning automation that physically syncs my lights and a sound machine to act as a gradual wake-up alarm.
+Inspired by David Rose’s _Enchanted Objects_, I built a locally hosted smart home system to automate my room's environment. Instead of relying on cloud services, the setup handles environmental monitoring and daily routines entirely locally. The core feature is a custom morning automation that physically syncs my lights and a sound machine to act as a gradual wake-up alarm.
 
 ### Tech Stack
 
@@ -13,8 +13,17 @@ graph TD
     User["User"] -->|"Web UI"| FlaskApp["Flask Web App (Python)"]
     User -->|"Apple Home App"| HomeKit["Apple HomeKit"]
     HomeKit <-->|"HomeKit Protocol"| HomePod["Apple HomePod"]
+
+    %% Hardware Boundary
+    subgraph Pi ["Raspberry Pi (Docker Environment)"]
+        direction TB
+        FlaskApp["Flask Web App (Python)"]
+        Homebridge["Homebridge Server"]
+    end
+
     HomePod <-->|"Bridge Protocol"| Homebridge["Homebridge Server (Raspberry Pi)"]
     FlaskApp <-->|"REST API"| Homebridge
+
     Homebridge <-->|"API"| DummyDevice1["Lights"]
     Homebridge <-->|"API"| DummyDevice2["Sound Machine"]
     Homebridge <-->|"API"| IRDevice["IR Remote"]
@@ -29,12 +38,14 @@ My initial setup relied on an Apple HomePod, but I quickly hit a wall with vendo
 
 - **System Architecture:** Deployed a local Homebridge server on a Raspberry Pi to act as a bridge between the HomePod and restricted, third-party devices (IR remotes, AC units, sound machines, soil monitors).
 - **Custom Interface Development:** Built a lightweight Flask web application that interfaces directly with Homebridge REST APIs, providing a front-end dashboard to easily update and manage my settings dynamically.
-- **Containerized Deployment:** Containerized the Flask application using Docker and managed it via Portainer on the Raspberry Pi.
+- **Containerized Deployment:** Containerized the Flask application using Docker and managed it via Portainer on a headless Raspberry Pi.
 - **Version Control:** Linked the deployment to a GitHub repository, enabling automated updates on the Raspberry Pi whenever new code is pushed to the main branch.
 
 ### Flask Server
 
 **Homebridge API Client:**
+
+(Credentials and API tokens are injected securely via Docker environment variables rather than hardcoded in the repository.)
 
 ```python
 class HomebridgeClient:
@@ -86,6 +97,3 @@ def set_alarm_time():
     except Exception as e:
         return jsonify({"error": f"Internal Server Error: {str(e)}"}), 500
 ```
-
-
-
