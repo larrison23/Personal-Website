@@ -8,16 +8,94 @@ Developed a custom web server framework in Java, conceptually mirroring the Mode
 - **Infrastructure & Deployment:** JServer, Gradle
 - **APIs & Integrations:** SQLite
 
+```mermaid
+flowchart TD
+    User["User"]
+    Controller["Controller (JRouter)"]
+    View["View (HTML Generator)"]
+    Model[("Model (SQLite)")]
+
+	User -->|"HTTP Request"| Controller
+    Controller -->|"Write"| View
+    View -->|"HTTP Response"| User
+    Controller <-->|"Queries/Update"| Model
+    Model ~~~ View
+```
+
 ## Challenge
 
 The primary engineering hurdle was bridging the object-relational impedance mismatch—translating relational database paradigms into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously orchestrating three distinct languages (Java, SQL, HTML) within a single request cycle.
 
-## The Solution
+### The Solution
 
 - **Strict MVC Architecture:** Decoupled the application into isolated layers. Built a custom HTTP routing parser to handle incoming requests, a dynamic HTML rendering engine for the View layer, and a dedicated SQL-driven Model layer.
 - **Custom ORM Implementation:** Engineered a data-binding layer that automatically mapped raw SQL database entries into manageable Java objects, cleanly abstracting the database queries away from the core business logic.
 - **Hardened Security:** Implemented PreparedStatement objects across all database interactions. This enforced strict input sanitization, neutralizing potential SQL injection vulnerabilities and ensuring the database remained secure against malicious queries.
 
-## Impact
+### Code
 
-Delivered a stable, interactive book management system that allows users to seamlessly query and update the database via a web browser. By enforcing strict architectural boundaries between the Java logic, SQL queries, and HTML rendering, the project resulted in a highly modular framework capable of securely scaling to support more complex, data-heavy web applications.
+**Database Queries:**
+
+```java
+public static <T> T find(Class<T> c, int id) {
+    if (!Model.class.isAssignableFrom(c)) {
+        throw new IllegalArgumentException(c.getSimpleName() + " is not a subclass of Model");
+    }
+
+    String sql = "SELECT * FROM " + c.getSimpleName() + " WHERE id = ?";
+
+    try (Connection conn = DriverManager.getConnection("jdbc:sqlite:sample.db");
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        
+        pstmt.setInt(1, id);
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                T instance = c.getDeclaredConstructor().newInstance();
+                Model.class.getDeclaredField("id").set(instance, rs.getInt("id"));
+
+                // Map database columns to @Column annotated fields
+                for (Field f : c.getFields()) {
+                    if (f.isAnnotationPresent(Column.class)) {
+                        Object val = extractValue(rs, f.getType(), f.getName());
+                        f.set(instance, val);
+                    }
+                }
+                
+                loadHasManyFields(conn, instance);
+                return instance;
+            }
+        }
+    } catch (Exception e) {
+        throw new RuntimeException("Binding failed for " + c.getSimpleName(), e);  
+    }
+    return null;
+}
+```
+
+**Routing Logic:**
+```java
+public Html route(String verb, String path, Map<String, String> params) {
+    // 1. Fail-fast validation
+    if (!VERBS.contains(verb)) {
+        throw new IllegalArgumentException("Invalid HTTP verb: " + verb);
+    }
+
+    // 2. O(1) Route Resolution
+    RouteTarget route = routes.get(getKey(verb, path));
+    if (route == null) {
+        throw new UnsupportedOperationException("Route not found for: " + path);
+    }
+
+    try {
+        // 3. Dynamic Controller instantiation ensures thread-safe, stateless execution
+        Controller controller = (Controller) route.clazz().getDeclaredConstructor().newInstance();
+        
+        // 4. Invoke the mapped method dynamically via Java Reflection
+        return (Html) route.method().invoke(controller, params);
+        
+    } catch (Exception e) {
+        throw new RuntimeException("Routing dispatch failure for " + path, e);
+    } 
+}
+```

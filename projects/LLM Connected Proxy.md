@@ -31,7 +31,7 @@ Building the proxy required a secure Man-in-the-Middle (MITM) architecture that 
 
 ### Main Proxy
 
-Python Webpage Parsing:
+**Python Webpage Parsing:**
 
 ```python
 @app.route("/", methods=["POST"])

@@ -34,7 +34,7 @@ My initial setup relied on an Apple HomePod, but I quickly hit a wall with vendo
 
 ### Flask Server
 
-Homebridge API Client:
+**Homebridge API Client:**
 
 ```python
 class HomebridgeClient:
@@ -66,7 +66,7 @@ class HomebridgeClient:
             return None
 ```
 
-Alarm Update:
+**Alarm Update:**
 ```python
 @app.route("/set-alarm-time", methods=["POST"])
 def set_alarm_time():
