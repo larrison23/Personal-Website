@@ -1,3 +1,9 @@
+.project-content {
+    min-width: 0;
+    max-width: 95vw;
+    overflow-wrap: break-word;
+}
+
 .project-content p {
     font-size: 1.25rem;
     line-height: 1.6;
@@ -11,12 +17,16 @@
 .project-content h2,
 .project-content h3 {
     font-size: 2rem;
-    border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
     margin-top: 40px;
     margin-bottom: 20px;
     width: 100%;
     max-width: 1105px;
+}
+
+.project-content h1,
+.project-content h2 {
+    border-bottom: 2px solid #ccc;
 }
 
 .project-content h3 {
@@ -49,8 +59,8 @@
     color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    overflow-x: auto;
-    max-width: 1105px;
+    max-width: 100%;
+    box-sizing: border-box;
     margin-bottom: 20px;
 }
 
@@ -58,6 +68,26 @@
     background-color: transparent;
     padding: 0;
     color: inherit;
+    display: block;
+    overflow-x: auto;
+}
+
+.project-content pre svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.project-content pre:has(svg) {
+    background-color: transparent;
+    padding: 0;
+}
+
+.project-content pre svg .edgeLabel,
+.project-content pre svg .edgeLabel div,
+.project-content pre svg .edgeLabel span {
+    background-color: transparent !important;
+    color: #000000 !important;
 }
 
 .project-content blockquote {
