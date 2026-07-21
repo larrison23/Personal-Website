@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Harrison Sweet | Portfolio</title>
 
-    <!-- Importing marked.js-->
-    <script src="marked.min.js"></script>
+    <!-- Markdown Renderers -->
+    <script src="js/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script type="module" src="js/markdown_parse.js"></script>
 
-    <!-- Importing Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 </head>
+
 <body>
 
     <div class="container">
-        <!-- Header Section -->
+        <!-- ----------------------------------------- -->
+        <!--                 Header                    -->
+        <!-- ----------------------------------------- -->
         <header class="header">
             <a href="index.html" class="nav-link"><div class="logo">HARRISON SWEET</div></a>
+
+            <!-- Nav Bar -->
             <nav id="top" class="nav">
                 <a href="index.html" class="nav-link">ABOUT</a>
                 <a href="projects.html" class="nav-link active">PROJECTS</a>
@@ -31,15 +40,17 @@
         </header>
 
         <main>
-            <!-- Hero Image -->
+            <!-- Hero -->
             <img class="hero-image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
 
-            <!-- Projects Intro -->
+            <!-- ----------------------------------------- -->
+            <!--             Projects Intro                -->
+            <!-- ----------------------------------------- -->
             <section class="projects-intro">
                 <h2 class="section-title">PROJECTS</h2>
                 <ul class="project-list">
                     <li><a href="#home-lab">1 Home Lab</a></li>
-                    <li><a href="#llmproxy">2 LLM-Powered HTTPS Proxy Server</a></li>
+                    <li><a href="#llmproxy">2 HTTPS/LLM Proxy Server</a></li>
                     <li><a href="#javaweb">3 Java MVC Web Framework</a></li>
                 </ul>
             </section>
@@ -62,7 +73,7 @@
             <!-- Project 2: LLM Proxy -->
             <section id="llmproxy" class="project-section">
                 <div class="project-title-banner">
-                    <h3>2 LLM-POWERED HTTPS PROXY SERVER</h3>
+                    <h3>2 HTTPS/LLM PROXY SERVER</h3>
                 </div>
 
                 <div class="project-content" data-file="projects/LLM Connected Proxy.md">
@@ -90,63 +101,12 @@
             </section>
         </main>
 
-        <!-- Footer -->
+        <!-- ----------------------------------------- -->
+        <!--                 Footer                    -->
+        <!-- ----------------------------------------- -->
         <footer class="footer">
             Produced by Harrison. 2026.
         </footer>
-    </div>
-
-    <!-- Script to fetch and parse Markdown Files-->
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        
-        mermaid.initialize({
-            startOnLoad: false,
-            theme: 'dark',
-
-            themeVariables: {
-                fontFamily: 'IBM Plex Mono, system-ui, sans-serif',
-                fontSize: '16px',
-                primaryColor: '#333333',
-                primaryTextColor: '#ffffff'
-            },
-
-            flowchart: {
-                nodeSpacing: 60,
-                rankSpacing: 60,
-                padding: 15
-            }
-        });
-        
-        const projectContainers = document.querySelectorAll('.project-content');
-
-        projectContainers.forEach(container => {
-            const markdownFile = container.getAttribute('data-file');
-
-            fetch(markdownFile)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Could not load ${mardownFile}. Check the path.`);
-                    } 
-                    return response.text();
-                })
-                .then(async text => {
-                    container.innerHTML = marked.parse(text);
-                    hljs.highlightAll();
-
-                    const mermaidBlocks = container.querySelectorAll('.language-mermaid');
-
-                    if (mermaidBlocks.length > 0) {
-                        await mermaid.run({
-                            nodes:Array.from(mermaidBlocks)
-                        });
-                    }
-                })
-                .catch(error => {
-                    container.innerHTML = `<p>Error loading project data.</p>`;
-                    console.error('Fetch error for', markdownFile, ':', error);
-                });
-        });
-    </script>
+    </div> <!-- /.container --> 
 </body>
 </html>
