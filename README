@@ -1,9 +1,0 @@
-# Instructions for the website
-
-Files: `> chmod 644 <filename>`
-
-Directories: `chmod 755 <directoryname>`
-
-Use: `python -m http.server 8000` to test the website
-
-Use: `rsync -avz --exclude '.git/' --exclude '.DS_Store' ./ harrison91sweet@linux.eecs.tufts.edu:~/public_html/` to sync with the linux folder from the Personal Website folder
