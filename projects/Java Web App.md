@@ -1,6 +1,6 @@
 ## Overview
 
-Developed a custom web server framework in Java, conceptually mirroring the Model-View-Controller (MVC) architecture. Utilizing JServer as the foundation, I built a dynamic, stateful book repository application. The framework intelligently routes incoming HTTP requests to dedicated Java controllers, seamlessly managing SQLite database transactions and rendering dynamic HTML views to the client.
+Developed a custom web server framework in Java using the Model-View-Controller (MVC) architecture. Utilizing JServer as the foundation, I built a dynamic, stateful book repository application. The framework routes incoming HTTP requests to dedicated Java controllers, managing SQLite database transactions and rendering dynamic HTML views to the client.
 
 ### Tech Stack
 
@@ -24,11 +24,11 @@ flowchart TD
 
 ## Challenge
 
-The primary engineering hurdle was bridging the object-relational impedance mismatch—translating relational database paradigms into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously orchestrating three distinct languages (Java, SQL, HTML) within a single request cycle.
+The primary engineering hurdle was bridging the relational database definitions into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously handling three distinct languages (Java, SQL, HTML) within a single request cycle.
 
 ### The Solution
 
-- **Strict MVC Architecture:** Decoupled the application into isolated layers. Built a custom HTTP routing parser to handle incoming requests, a dynamic HTML rendering engine for the View layer, and a dedicated SQL-driven Model layer.
+- **Strict MVC Architecture:** Separated the application into isolated layers. Built a custom HTTP routing parser to handle incoming requests, a dynamic HTML rendering engine for the View layer, and a dedicated SQL-driven Model layer.
 - **Custom ORM Implementation:** Engineered a data-binding layer that automatically mapped raw SQL database entries into manageable Java objects, cleanly abstracting the database queries away from the core business logic.
 - **Hardened Security:** Implemented PreparedStatement objects across all database interactions. This enforced strict input sanitization, neutralizing potential SQL injection vulnerabilities and ensuring the database remained secure against malicious queries.
 

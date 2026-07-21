@@ -1,6 +1,6 @@
 ## Overview
 
-Co-developed a custom HTTPS proxy that intercepts web traffic and uses a Large Language Model to edit web page content on the fly. Built using C, Flask, and Beautiful Soup, the initial implementation focused on an automated spoiler-blurring tool for sports scores. However, the underlying architecture is strictly modular, allowing new content-filtering plugins to be easily dropped in.
+Co-developed a custom HTTPS proxy that intercepts web traffic and uses a Large Language Model to edit web page content on the fly. Built using C, Flask, and Beautiful Soup, the initial implementation focused on an automated spoiler-blurring tool for sports scores. Because the underlying architecture passes the HTML content to a Python script, new content-modifying plugins can easily be dropped in.
 
 ### Tech Stack
 
@@ -31,7 +31,7 @@ flowchart TD
 
 ## Challenge
 
-Building the proxy required a secure Man-in-the-Middle (MITM) architecture that could dynamically manage TLS certificates on the fly. We initially looked at doing everything in C, but quickly realized that native C lacks the robust libraries needed for heavy HTML parsing and LLM API routing. By decoupling the system, we let C handle the high-speed network routing while Python handles the complex text manipulation. Using this architecture we were able to intercept and modify static and semi-static web pages (e.g., Wikipedia, text-heavy blogs). During testing, however, we encountered concurrency bottlenecks when handling heavily dynamic sites generating dozens of asynchronous requests (videos, complex DOMs). To resolve this for future iterations, we discussed a concurrent model utilizing process forking, designing a system to route all asynchronous connections tied to a single session ID through a unified, dedicated proxy instance.
+Building the proxy required a secure Man-in-the-Middle (MITM) architecture that could dynamically manage TLS certificates on the fly. We initially looked at doing everything in C, but quickly realized that native C lacks the robust libraries needed for heavy HTML parsing and LLM API routing. By decoupling the system, we let C handle the high-speed network routing while Python handles the complex text manipulation. Using this architecture we were able to intercept and modify static and semi-static web pages (e.g., Wikipedia, text-heavy blogs). During testing, however, we encountered concurrency bottlenecks when handling heavily dynamic sites generating dozens of asynchronous requests. To resolve this for future iterations, we discussed a concurrent model utilizing process forking, designing a system to route all asynchronous connections tied to a single session ID through a unified, dedicated proxy instance.
 
 ### The Solution
 
