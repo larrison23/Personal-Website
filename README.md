@@ -35,3 +35,8 @@ Directories: Should be executable and readable by everyone.
 ```bash
 chmod 755 <directoryname>
 ```
+
+## Contact
+* **LinkedIn:** [Link](https://www.linkedin.com/in/harrison-sweet-53102a1b5/)
+* **Email:** harrison.sweet@hey.com
+* **Resume:** [Link](/documents/SweetHarrisonCV.pdf)
