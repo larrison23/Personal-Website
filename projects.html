@@ -18,8 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 </head>
@@ -31,75 +30,77 @@
         <!--                 Header                    -->
         <!-- ----------------------------------------- -->
         <header class="header">
-            <a href="index.html" class="nav-link"><div class="logo">R. HARRISON SWEET</div></a>
+            <a href="index.html" class="header__home-link">
+                <div class="header__logo">R. HARRISON SWEET</div>
+            </a>
 
             <!-- Nav Bar -->
             <nav id="top" class="nav">
-                <a href="index.html" class="nav-link">ABOUT</a>
-                <a href="projects.html" class="nav-link active">PROJECTS</a>
-                <a class="nav-link" href="documents/SweetHarrisonCV.pdf" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <a href="index.html" class="nav__link">ABOUT</a>
+                <a href="projects.html" class="nav__link nav__link--active">PROJECTS</a>
+                <a href="documents/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
             </nav>
         </header>
 
         <main>
             <!-- Hero -->
-            <img class="hero-image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
+            <img class="hero__image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
 
             <!-- ----------------------------------------- -->
             <!--             Projects Intro                -->
             <!-- ----------------------------------------- -->
-            <section class="projects-intro">
-                <h2 class="section-title">PROJECTS</h2>
-                <ul class="project-list">
+            <section class="project">
+                <h2 class="project__title">PROJECTS</h2>
+                <ul class="project__list">
                     <li><a href="#home-lab">1 Home Lab</a></li>
                     <li><a href="#llmproxy">2 HTTPS/LLM Proxy Server</a></li>
                     <li><a href="#javaweb">3 Java MVC Web Framework</a></li>
                 </ul>
-            </section>
 
-            <!-- Project 1: Home Lab -->
-            <section id="home-lab" class="project-section">
-                <div class="project-title-banner">
-                    <h3>1 HOME LAB</h3>
-                </div>
+                <!-- Project 1: Home Lab -->
+                <section id="home-lab" class="project__section">
+                    <div class="project__title__banner">
+                        <h3>1 HOME LAB</h3>
+                    </div>
 
-                <div class="project-content" data-file="projects/Containerized Home Network.md">
-                    Loading project data...
-                </div>
+                    <div class="markdown" data-file="projects/Containerized Home Network.md">
+                        Loading project data...
+                    </div>
 
-                <div class="back-to-top-container">
-                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
-                </div>
-            </section>
+                    <div class="project__back">
+                        <a href="#top" class="project__back-link">↑ Back to Project List</a>
+                    </div>
+                </section>
 
-            <!-- Project 2: LLM Proxy -->
-            <section id="llmproxy" class="project-section">
-                <div class="project-title-banner">
-                    <h3>2 HTTPS/LLM PROXY SERVER</h3>
-                </div>
+                <!-- Project 2: LLM Proxy -->
+                <section id="llmproxy" class="project__section">
+                    <div class="project__title__banner">
+                        <h3>2 HTTPS/LLM PROXY SERVER</h3>
+                    </div>
 
-                <div class="project-content" data-file="projects/LLM Connected Proxy.md">
-                    Loading project data...
-                </div>
+                    <div class="markdown" data-file="projects/LLM Connected Proxy.md">
+                        Loading project data...
+                    </div>
 
-                <div class="back-to-top-container">
-                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
-                </div>
-            </section>
+                    <div class="project__back">
+                        <a href="#top" class="project__back-link">↑ Back to Project List</a>
+                    </div>
+                </section>
 
-            <!-- Project 3: Java Web App -->
-            <section id="javaweb" class="project-section">
-                <div class="project-title-banner">
-                    <h3>3 JAVA MVC WEB FRAMEWORK</h3>
-                </div>
+                <!-- Project 3: Java Web App -->
+                <section id="javaweb" class="project__section">
+                    <div class="project__title__banner">
+                        <h3>3 JAVA MVC WEB FRAMEWORK</h3>
+                    </div>
 
-                <div class="project-content" data-file="projects/Java Web App.md">
-                    Loading project data...
-                </div>
+                    <div class="markdown" data-file="projects/Java Web App.md">
+                        Loading project data...
+                    </div>
 
-                <div class="back-to-top-container">
-                    <a href="#top" class="back-to-top-link">↑ Back to Project List</a>
-                </div>
+                    <div class="project__back">
+                        <a href="#top" class="project__back-link">↑ Back to Project List</a>
+                    </div>
+                </section>
             </section>
         </main>
 

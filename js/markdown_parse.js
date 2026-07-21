@@ -18,7 +18,7 @@
         }
     });
     
-    const projectContainers = document.querySelectorAll('.project-content');
+    const projectContainers = document.querySelectorAll('.markdown');
 
     projectContainers.forEach(container => {
         const markdownFile = container.getAttribute('data-file');
