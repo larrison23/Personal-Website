@@ -9,18 +9,14 @@
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <!-- Markdown Renderers -->
-    <script src="js/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="module" src="js/markdown_parse.js"></script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="assets/lib/marked.min.js" integrity="sha384-VJnvefD/tWDu6Zh+wlcrPu0KtB7rqJvCQYcDzJ9jQcdDVlL5Ce7Kcm9tOBLtF7/G" crossorigin="anonymous"></script>
+    <script src="assets/lib/purify.min.js" integrity="sha384-KI2VFGKRhVDym1z+XNqQxgWpLJ8egX+ITfvSY8iWdGZ86B1qIK7/DXPGncRhbK2w" crossorigin="anonymous"></script>
+    <script src="assets/lib/highlight.min.js" integrity="sha384-F/bZzf7p3Joyp5psL90p/p89AZJsndkSoGwRpXcZhleCWhd8SnRuoYo4d0yirjJp" crossorigin="anonymous"></script>
+    <script type="module" src="assets/js/markdown_parse.js"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/theme.js" defer></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap">
+    <script src="assets/js/theme.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -36,7 +32,7 @@
             <nav class="nav">
                 <a href="index.html" class="nav__link nav__link--active">ABOUT</a>
                 <a href="projects.html" class="nav__link">PROJECTS</a>
-                <a href="documents/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <a href="assets/docs/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
                 <button id="theme-toggle" class="nav__link" style="background: none; border: none; cursor: pointer;">
                     &#x263D;
                 </button>
@@ -45,7 +41,7 @@
 
         <main>
             <!-- Hero -->
-            <img class="hero__image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
+            <img class="hero__image" src="assets/images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
 
             <section id="about" class="about">
                 <!-- ----------------------------------------- -->
@@ -56,10 +52,10 @@
                 </div>
                 <div class="about__content">
                     <div class="about__image-wrapper">
-                        <img class="about__image" src="images/Harrison_headshot.jpeg" alt="Portrait of Harrison Sweet" />
+                        <img class="about__image" src="assets/images/Harrison_headshot.jpeg" alt="Portrait of Harrison Sweet" />
                     </div>
                     
-                    <div class="markdown about__text" data-file="projects/Intro.md">
+                    <div class="markdown about__text" data-file="content/Intro.md">
                         Loading intro...
                     </div>
                 </div>

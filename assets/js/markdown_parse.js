@@ -31,7 +31,8 @@
                 return response.text();
             })
             .then(async text => {
-                container.innerHTML = marked.parse(text);
+                const rawHTML = marked.parse(text);
+                container.innerHTML = DOMPurify.sanitize(rawHTML);
                 hljs.highlightAll();
 
                 const mermaidBlocks = container.querySelectorAll('.language-mermaid');

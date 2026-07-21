@@ -419,6 +419,13 @@ body {
 
 .cluster span {
     color: var(--cluster-span) !important;
+    z-index: 9999;
+
+    text-shadow:
+        -2px -2px 0 var(--color-bg),
+        2px -2px 0 var(--color-bg),
+        -2px 2px 0 var(--color-bg),
+        2px 2px 0 var(--color-bg) !important;
 }
 
 /* =========================================
@@ -431,6 +438,24 @@ body {
     font-family: var(--font-sans);
     font-size: 1rem;
     font-weight: 700;
+}
+
+/* ibm-plex-mono-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/ibm-plex-mono-v20-latin-700.woff2') format('woff2');
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/roboto-v51-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* =========================================
