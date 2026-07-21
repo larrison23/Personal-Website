@@ -19,8 +19,10 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/theme.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="theme-dark" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="theme-light">
 </head>
 
 <body>
@@ -39,6 +41,9 @@
                 <a href="index.html" class="nav__link">ABOUT</a>
                 <a href="projects.html" class="nav__link nav__link--active">PROJECTS</a>
                 <a href="documents/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <button id="theme-toggle" class="nav__link" style="background: none; border: none; cursor: pointer;">
+                    &#x263D;
+                </button>
             </nav>
         </header>
 

@@ -2,19 +2,57 @@
    GLOBAL VARIABLES
    ================================= */
 :root {
+    /* General Colors */
     --color-bg: #ffffff;
     --color-text: #000000;
     --color-text-muted: #555555;
-    --color-accent: #cc0000;
+    --color-accent: #0056b3;
     --color-border: #cccccc;
+
+    /* Code Colors */
     --color-code-bg: #f0f0f0;
     --color-pre-bg: #1a1a1a;
+
+    /* Graph Colors */
+    --color-edge: #0056b3;
+    --color-edge-text: #0056b3;
+    --color-node-bg: #ffffff;
+    --color-node-stroke: #0056b3;
+    --color-node-text: #333333;
+    --cluster-fill: #e6f2ff;
+    --cluster-stroke: #8cb3d9;
+    --cluster-span: #0056b3;
+    --color-link: #0056b3;
 
     --font-mono: 'IBM Plex Mono', monospace;
     --font-sans: 'Roboto', sans-serif;
 
     --max-width-global: 1440px;
     --max-width-content: 1105px;
+}
+
+body[data-theme="dark"] {
+    /* General Colors */
+    --color-bg: #121212;
+    --color-text: #e0e0e0;
+    --color-text-muted: #a0a0a0;
+    --color-accent: #ff4d4d;
+    --color-border: #333333;
+
+    /* Code Colors */
+    --color-code-bg: #2a2a2a;
+    --color-pre-bg: #f0f0f0;
+
+    /* Graph Colors */
+    --color-edge: #ff4d4d;
+    --color-edge-text: #ff4d4d;
+    --color-node-bg: #1e293b;
+    --color-node-stroke: #ff4d4d;
+    --color-node-text: #e0e0e0;
+    --cluster-fill: #331414;
+    --cluster-stroke: #b33636;
+    --cluster-span: #ff4d4d;
+    --color-link: #ff4d4d;
 }
 
 /* =================================
@@ -152,6 +190,18 @@ body {
         font-size: 1.25rem;
         font-weight: 700;
         line-height: 1.6;
+    }
+
+    & a, & a:visited {
+        color: var(--color-link);
+        text-decoration: none;
+        border-bottom: 1px solid var(--color-link);
+        transition: all 0.3 ease;
+
+        &:hover {
+            color: var(--color-text);
+            border-bottom-color: var(--color-text);
+        }
     }
 }
 
@@ -298,9 +348,37 @@ body {
             margin: 0 auto;
             max-width: 100%;
 
+            & .edgePath path, & .edgePath .path, & .flowchart-link {
+                stroke: var(--color-edge) !important;
+                stroke-width: 2px !important;
+            }
+
+            & marker path, & marker polygon {
+                fill: var(--color-edge) !important;
+                stroke: var(--color-edge) !important;
+            }
+
             & .edgeLabel, & .edgeLabel div, & .edgeLabel span {
                 background-color: transparent !important;
-                color: var(--color-text) !important;
+                color: var(--color-edge-text) !important;
+
+                text-shadow:
+                    -2px -2px 0 var(--color-bg),
+                    2px -2px 0 var(--color-bg),
+                    -2px 2px 0 var(--color-bg),
+                    2px 2px 0 var(--color-bg) !important;
+            }
+
+            & .node rect, & .node circle, & .node ellipse, & .node polygon, & .node path {
+                fill: var(--color-node-bg) !important;
+                stroke: var(--color-node-stroke) !important;
+                stroke-width: 2px !important;
+            }
+
+            & .node .label, & .node span, & .node text {
+                color: var(--color-node-text) !important;
+                fill: var(--color-node-text) !important;
+                font-weight: 600 !important;
             }
         }
     }
@@ -334,13 +412,13 @@ body {
 }
 
 .cluster rect {
-    fill: #e6f2ff !important;
-    stroke: #8cb3d9 !important;
+    fill: var(--cluster-fill) !important;
+    stroke: var(--cluster-stroke) !important;
     stroke-width: 2px !important;
 }
 
 .cluster span {
-    color: #333333 !important;
+    color: var(--cluster-span) !important;
 }
 
 /* =========================================
