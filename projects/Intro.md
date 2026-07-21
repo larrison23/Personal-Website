@@ -5,4 +5,4 @@ Previously, I was a CS Teaching Assistant and worked as an IT intern at the Conn
 ## Contact
 * **LinkedIn:** [Link](https://www.linkedin.com/in/harrison-sweet-53102a1b5/)
 * **Email:** harrison.sweet@hey.com
-* **Resume:** [Link](/documents/SweetHarrisonCV.pdf)
+* **Github:** [Link](https://github.com/larrison23)

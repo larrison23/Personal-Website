@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal website and project portfolio. 
 
+[Website](https://www.eecs.tufts.edu/~rsweet02)
+
 ## Tech Stack
 * **Frontend:** HTML5, Custom CSS
 * **Parsing:** marked.js, markdown_parse.js
@@ -37,6 +39,6 @@ chmod 755 <directoryname>
 ```
 
 ## Contact
-* **LinkedIn:** [Link](https://www.linkedin.com/in/harrison-sweet-53102a1b5/)
+* **LinkedIn:** [Harrison Sweet](https://www.linkedin.com/in/harrison-sweet-53102a1b5/)
 * **Email:** harrison.sweet@hey.com
-* **Resume:** [Link](/documents/SweetHarrisonCV.pdf)
+* **Resume:** [larrison23](/documents/SweetHarrisonCV.pdf)
