@@ -362,11 +362,8 @@ body {
                 background-color: transparent !important;
                 color: var(--color-edge-text) !important;
 
-                text-shadow:
-                    -2px -2px 0 var(--color-bg),
-                    2px -2px 0 var(--color-bg),
-                    -2px 2px 0 var(--color-bg),
-                    2px 2px 0 var(--color-bg) !important;
+                -webkit-text-stroke: 5px var(--color-bg);
+                paint-order: stroke fill;
             }
 
             & .node rect, & .node circle, & .node ellipse, & .node polygon, & .node path {
@@ -424,11 +421,8 @@ body {
     color: var(--cluster-span) !important;
     font-weight: 700 !important;
 
-    text-shadow:
-        -2px -2px 0 var(--color-bg),
-        2px -2px 0 var(--color-bg),
-        -2px 2px 0 var(--color-bg),
-        2px 2px 0 var(--color-bg) !important;
+    -webkit-text-stroke: 5px var(--color-bg);
+    paint-order: stroke fill;
 }
 
 /* =========================================
