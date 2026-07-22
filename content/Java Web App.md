@@ -24,7 +24,7 @@ flowchart TD
 
 ## Challenge
 
-The primary engineering hurdle was bridging the relational database definitions into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously handling three distinct languages (Java, SQL, HTML) within a single request cycle.
+The primary engineering hurdle was converting the relational database definitions into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously handling three distinct languages (Java, SQL, HTML) within a single request cycle.
 
 ### The Solution
 
