@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
 
     <title>R. Harrison Sweet | Portfolio</title>
 
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <!-- Markdown Renderers -->
-    <script src="js/marked.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="module" src="js/markdown_parse.js"></script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="assets/lib/marked.min.js"></script>
+    <script src="assets/lib/purify.min.js"></script>
+    <script src="assets/lib/highlight.min.js"></script>
+    <script src="assets/lib/mermaid.min.js"></script>
+    <script type="module" src="assets/js/markdown_parse.js"></script>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/intro.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@700&family=Roboto:wght@700&display=swap">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/theme.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -28,33 +26,38 @@
         <!--                 Header                    -->
         <!-- ----------------------------------------- -->
         <header class="header">
-            <a href="#about" class="nav-link"><div class="logo">R. HARRISON SWEET</div></a>
+            <a href="#about" class="header__home-link">
+                <div class="header__logo">R. HARRISON SWEET</div>
+            </a>
 
             <!--Nav Bar-->
             <nav class="nav">
-                <a href="index.html" class="nav-link active">ABOUT</a>
-                <a href="projects.html" class="nav-link">PROJECTS</a>
-                <a class="nav-link" href="documents/SweetHarrisonCV.pdf" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <a href="index.html" class="nav__link nav__link--active">ABOUT</a>
+                <a href="projects.html" class="nav__link">PROJECTS</a>
+                <a href="assets/docs/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <button id="theme-toggle" class="nav__link" style="background: none; border: none; cursor: pointer;">
+                    &#x263D;
+                </button>
             </nav>
         </header>
 
         <main>
             <!-- Hero -->
-            <img class="hero-image" src="images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
+            <img class="hero__image" src="assets/images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
 
-            <section id="about" class="about-section">
+            <section id="about" class="about">
                 <!-- ----------------------------------------- -->
                 <!--                 About Me                  -->
                 <!-- ----------------------------------------- -->
-                <div class="section-title-container">
-                    <h2 class="section-title">ABOUT ME</h2>
+                <div class="about__header">
+                    <h2 class="about__title">ABOUT ME</h2>
                 </div>
-                <div class="about-content">
-                    <div class="about-image-container">
-                        <img class="about-image" src="images/Harrison_headshot.jpeg" alt="Portrait of Harrison Sweet" />
+                <div class="about__content">
+                    <div class="about__image-wrapper">
+                        <img class="about__image" src="assets/images/Harrison_headshot.jpeg" alt="Portrait of Harrison Sweet" />
                     </div>
                     
-                    <div class="project-content about-text" data-file="projects/Intro.md">
+                    <div class="markdown about__text" data-file="content/Intro.md">
                         Loading intro...
                     </div>
                 </div>

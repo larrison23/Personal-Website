@@ -53,16 +53,13 @@ def process_packet():
     headers, html_body = parse_raw_http(request.data)
     soup = BeautifulSoup(html_body, 'html.parser')
 
-    # 1. Fast-Pass: Regex pre-filtering to avoid high-latency LLM calls
     keyword_re = compile_search_patterns(KEYWORDS)
     candidates = extract_suspicious_nodes(soup, keyword_re)
 
     if candidates:
-        # 2. Verification: Batch query the LLM Proxy to confirm context
         candidate_texts = [item['clean_text'] for item in candidates]
         spoiler_flags = ask_llm(candidates=candidate_texts, query=KEYWORDS)
 
-        # 3. DOM Mutation: Apply CSS blurring to verified spoiler nodes
         for node_data, is_spoiler in zip(candidates, spoiler_flags):
             if is_spoiler:
                 target_node = node_data['node']
@@ -92,7 +89,7 @@ int perform_ssl_handshakes(int client_sock, const char* host, int port,
     SSL_set_fd(*client_ssl, client_sock);
     if (SSL_accept(*client_ssl) <= 0) {
         print_ssl_errors("Error accepting SSL handshake from client");
-        return -1; // Indicate failure
+        return -1;
     }
 
     *server_sock = open_client_fd(host, port);

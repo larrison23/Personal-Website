@@ -24,7 +24,7 @@ flowchart TD
 
 ## Challenge
 
-The primary engineering hurdle was bridging the relational database definitions into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously handling three distinct languages (Java, SQL, HTML) within a single request cycle.
+The primary engineering hurdle was converting the relational database definitions into object-oriented Java syntax. Furthermore, the system required maintaining a strict separation of concerns while simultaneously handling three distinct languages (Java, SQL, HTML) within a single request cycle.
 
 ### The Solution
 
@@ -76,22 +76,18 @@ public static <T> T find(Class<T> c, int id) {
 **Routing Logic:**
 ```java
 public Html route(String verb, String path, Map<String, String> params) {
-    // 1. Fail-fast validation
     if (!VERBS.contains(verb)) {
         throw new IllegalArgumentException("Invalid HTTP verb: " + verb);
     }
 
-    // 2. O(1) Route Resolution
     RouteTarget route = routes.get(getKey(verb, path));
     if (route == null) {
         throw new UnsupportedOperationException("Route not found for: " + path);
     }
 
     try {
-        // 3. Dynamic Controller instantiation ensures thread-safe, stateless execution
         Controller controller = (Controller) route.clazz().getDeclaredConstructor().newInstance();
         
-        // 4. Invoke the mapped method dynamically via Java Reflection
         return (Html) route.method().invoke(controller, params);
         
     } catch (Exception e) {

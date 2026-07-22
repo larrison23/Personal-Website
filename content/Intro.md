@@ -3,6 +3,6 @@ Hi, I’m a recent graduate of Tufts University with an M.S. in Computer Science
 Previously, I was a CS Teaching Assistant and worked as an IT intern at the Connecticut Judicial Branch, where I had hands-on experience in web development and security practices. As the former captain of both the Varsity Men's Rowing and Club Ice Hockey teams, I improved immensely in my leadership skills, conflict resolution abilities, and practiced building data applications to support our athletic endeavours. I am passionate about using technology to build secure, innovative, and user-centric software solutions.
 
 ## Contact
-* **LinkedIn:** [Link](https://www.linkedin.com/in/harrison-sweet-53102a1b5/)
+* **LinkedIn:** [Harrison Sweet](https://www.linkedin.com/in/harrison-sweet-53102a1b5/)
 * **Email:** harrison.sweet@hey.com
-* **Github:** [Link](https://github.com/larrison23)
+* **Github:** [larrison23](https://github.com/larrison23)
