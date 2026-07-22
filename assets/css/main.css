@@ -277,7 +277,7 @@ body {
    ================================= */
 .markdown {
     min-width: 0;
-    max-width: 95vm;
+    max-width: 95vw;
     overflow-wrap: break-word;
     text-align: left;
 
