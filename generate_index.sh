@@ -3,7 +3,7 @@
 # Define the folder where your blog markdown files live
 BLOG_DIR="content/blog"
 # Define the output JSON file
-OUTPUT_FILE="assets/js/blog_index.json"
+OUTPUT_FILE="assets/js/blog_index.txt"
 
 echo "[" > $OUTPUT_FILE
 first=true

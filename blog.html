@@ -49,7 +49,7 @@
     <!-- Script to fetch the JSON and build the feed -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            fetch('assets/js/blog_index.json')
+            fetch('assets/js/blog_index.txt')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error. Status: ${response.status}`);
