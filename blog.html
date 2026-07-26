@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R. Harrison Sweet | Blog</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/theme.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header & Nav -->
+        <header class="header">
+            <a href="index.html" class="header__home-link">
+                <div class="header__logo">R. HARRISON SWEET</div>
+            </a>
+            <nav id="top" class="nav">
+                <a href="index.html" class="nav__link">ABOUT</a>
+                <a href="projects.html" class="nav__link">PROJECTS</a>
+                <a href="blog.html" class="nav__link nav__link--active">BLOG</a>
+                <a href="assets/docs/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <button id="theme-toggle" class="nav__link" style="background: none; border: none; cursor: pointer;">&#x263D;</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <img class="hero__image" src="assets/images/Rowing_Clean.jpeg" alt="Rowing competition banner" />
+
+            <section class="project">
+                <h2 class="project__title">ALL POSTS</h2>
+                
+                <!-- This empty list will be populated by JavaScript -->
+                <ul class="project__list" id="blog-feed">
+                    <li>Loading posts...</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="footer">Produced by Harrison. 2026.</footer>
+    </div>
+    <!-- Script to fetch the JSON and build the feed -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('assets/js/blog_index.json')
+                .then(response => response.json())
+                .then(posts => {
+                    const feed = document.getElementById('blog-feed');
+                    feed.innerHTML = ''; // Clear loading text
+                    
+                    posts.forEach((post, index) => {
+                        const li = document.createElement('li');
+                        // Points to a single post template, passing the filename in the URL
+                        li.innerHTML = `<a href="post.html?file=${encodeURIComponent(post.file)}">${post.title}</a>`;
+                        feed.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading blog posts:', error);
+                    document.getElementById('blog-feed').innerHTML = '<li>Error loading posts.</li>';
+                });
+        });
+    </script>
+</body>
+</html>

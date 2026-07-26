@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R. Harrison Sweet | Blog</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Markdown Renderers -->
+    <script src="assets/lib/marked.min.js"></script>
+    <script src="assets/lib/purify.min.js"></script>
+    <script src="assets/lib/highlight.min.js"></script>
+    <script src="assets/lib/mermaid.min.js"></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script type="module" src="assets/js/markdown_parse.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header & Nav -->
+        <header class="header">
+            <a href="index.html" class="header__home-link">
+                <div class="header__logo">R. HARRISON SWEET</div>
+            </a>
+            <nav id="top" class="nav">
+                <a href="index.html" class="nav__link">ABOUT</a>
+                <a href="projects.html" class="nav__link">PROJECTS</a>
+                <a href="blog.html" class="nav__link nav__link--active">BLOG</a>
+                <a href="assets/docs/SweetHarrisonCV.pdf" class="nav__link" target="_blank" rel="noopener noreferrer">RESUME</a>
+                <button id="theme-toggle" class="nav__link" style="background: none; border: none; cursor: pointer;">&#x263D;</button>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="project">
+                <section class="project__section">
+                    <div class="project__back" style="margin-bottom: 2rem;">
+                        <a href="blog.html" class="project__back-link">← Back to All Posts</a>
+                    </div>
+
+                    <div class="project__title__banner">
+                        <h3></h3>
+                    </div>
+                    <!-- File name injected dynamically -->
+                    <div id="markdown-container" class="markdown" data-file="">
+                        Loading post...
+                    </div>
+
+                    <div class="project__back" style="margin-bottom: 2rem;">
+                        <a href="#top" class="project__back-link">↑ Back to Top</a>
+                    </div>
+                </section>
+            </section>
+        </main>
+        
+        <footer class="footer">Produced by Harrison. 2026.</footer>
+    </div>
+
+    <!-- Script to read the URL parameter and update the data-file attribute -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get('file');
+        
+        if (fileName) {
+            const decodedName = decodeURIComponent(fileName);
+
+            const titleElement = document.querySelector('.project__title__banner h3');
+            if (titleElement) {
+                titleElement.innerHTML = decodedName.replace('.md','');
+            }
+            
+            const container = document.getElementById('markdown-container');
+            container.setAttribute('data-file', 'content/blog/' + fileName);
+        } else {
+            document.getElementById('markdown-container').innerText = "Post not found.";
+        }
+    </script>
+</body>
+</html>
