@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R. Harrison Sweet | Blog</title>
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/post.js" defer></script>
+    
     <!-- Markdown Renderers -->
     <script src="assets/lib/marked.min.js"></script>
     <script src="assets/lib/purify.min.js"></script>
     <script src="assets/lib/highlight.min.js"></script>
     <script src="assets/lib/mermaid.min.js"></script>
-    <script src="assets/js/theme.js" defer></script>
     <script type="module" src="assets/js/markdown_parse.js"></script>
+
+    <!-- Stylesheets-->
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/theme_init.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-        }
-    </script>
-    
+<body>    
     <div class="container">
-        <!-- Header & Nav -->
+        <!-- ----------------------------------------- -->
+        <!--                 Header                    -->
+        <!-- ----------------------------------------- -->
         <header class="header">
             <a href="index.html" class="header__home-link">
                 <div class="header__logo">R. HARRISON SWEET</div>
@@ -60,25 +61,5 @@
         
         <footer class="footer">Produced by Harrison. 2026.</footer>
     </div>
-
-    <!-- Script to read the URL parameter and update the data-file attribute -->
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const fileName = urlParams.get('file');
-        
-        if (fileName) {
-            const decodedName = decodeURIComponent(fileName);
-
-            const titleElement = document.querySelector('.project__title__banner h3');
-            if (titleElement) {
-                titleElement.innerHTML = decodedName.replace('.md','');
-            }
-            
-            const container = document.getElementById('markdown-container');
-            container.setAttribute('data-file', 'content/blog/' + fileName);
-        } else {
-            document.getElementById('markdown-container').innerText = "Post not found.";
-        }
-    </script>
 </body>
 </html>
