@@ -26,4 +26,7 @@ for file in "$BLOG_DIR"/*.md; do
 done
 
 echo "]" >> $OUTPUT_FILE
+
+chmod 644 $OUTPUT_FILE
+
 echo "Blog index generated at $OUTPUT_FILE"
