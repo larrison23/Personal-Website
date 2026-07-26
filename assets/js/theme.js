@@ -6,6 +6,7 @@ const darkCodeTheme = document.getElementById('theme-dark');
 
 if (currentTheme === 'dark') {
     document.body.setAttribute('data-theme', 'dark');
+    themeToggle.textContent = '☀';
 
     if (lightCodeTheme && darkCodeTheme) {
         lightCodeTheme.disabled = true;
@@ -23,6 +24,7 @@ themeToggle.addEventListener('click', () => {
             lightCodeTheme.disabled = false;
         }
         localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '☽';
     } else {
         document.body.setAttribute('data-theme', 'dark');
         if (lightCodeTheme && darkCodeTheme) {
@@ -30,5 +32,6 @@ themeToggle.addEventListener('click', () => {
             darkCodeTheme.disabled = false;
         }
         localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀';
     }
 })

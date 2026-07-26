@@ -24,6 +24,11 @@
 </head>
 
 <body>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+    </script>
 
     <div class="container">
         <!-- ----------------------------------------- -->
