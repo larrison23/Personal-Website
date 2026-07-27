@@ -1,3 +1,5 @@
 [
   {"title": "Growing AI Assitants", "file": "Growing AI Assitants.md"}
+,
+  {"title": "Protecting Our Digital Skin", "file": "Protecting Our Digital Skin.md"}
 ]
