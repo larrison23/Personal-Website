@@ -10,7 +10,7 @@ Extending on this metaphor, companies have now released AI agents to varying lev
 
 There's this philosophical quote from Alfred Korzybski that states "the map is not the territory". The classic real world example of this statement is a GPS that directs you to drive into a lake. Because the GPS is not in the world, it has no physical understanding of the objects on the map. In the same way, AI can understand that a car is something that people drive, but it doesn't have access to the actual human experience of driving a car. All the AI can use is the data of humans talking about driving cars. Like Flat Stanley, the AI itself is not a human, and it is not in the world, so it fails in tasks that feel like common sense. This limitation led me to another metaphor to understand AI's interaction in the world: AI as a lens.
 
-### AI as a Lens
+## AI as a Lens
 
 In this metaphor, AI operates as a filter over a set of data. It reorganizes existing information in various helpful ways to expose biases and highlight trends. For example, I've been using the connected AI in the Oura app to gain insight into my sleep data. It has helped me navigate the massive amount of metrics the Oura ring collects, giving me simple recommendations tailored to my personal inclinations. Because the AI is able to quickly parse a ton of data streams simultaneously, it finds relationships that I can't see. Similar to a microscope, it reveals hidden structures in the data.
 
@@ -22,7 +22,7 @@ I've experienced these refraction errors firsthand in my various computer scienc
 
 Viewing AI as a lens creates the expectation that it will consistently display the same filtered data. But AI operates non-deterministically. It relies on underlying probabilities that affect the output of the system. Asking AI to retrieve a certain file doesn't actually pull that file from a hard drive; it probabilistically regenerates the shape of that file (which can be very close to the original, but crucially is not that exact file). 
 
-### AI as a Plant
+## AI as a Plant
 
 To round out my understanding of AI, I've since been thinking of it as a plant that needs nurturing and pruning to produce valuable fruit. This metaphor highlights the nature of AI to grow (or decay) over time depending on the data provided. In the chat bot interface, this directly relates to the nature of our questions. Data shows that saying [please and thank you](https://www.nytimes.com/2025/04/24/technology/chatgpt-alexa-please-thank-you.html) to the AI results in better responses. Although the AI is not a human and doesn't care about manners, the data vectors that are connected to the phrases "please" and "thank you" happen to be more beneficial than the data lacking those phrases. 
 
